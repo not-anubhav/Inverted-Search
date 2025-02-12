@@ -20,12 +20,12 @@ int update(v_files *flist, v_files **head, main_t *mainnode, sub_t *subnode, has
     char *delim = strstr(filename, ".");
     if(delim == NULL)
     {
-        printf(BRED"Invalid Extension\n"RESET);
+        printf(BRED"%s File has Invalid Extension\n"RESET, filename);
         return FAILURE;
     }
     else if(strcmp(delim, ".txt") != 0)
     {
-        printf(BRED"Entered Filename is not in .txt format\n"RESET);
+        printf(BRED"%s File is not in .txt format\n"RESET, filename);
         return FAILURE;
     }
 

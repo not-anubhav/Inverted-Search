@@ -55,7 +55,7 @@ int validate_savefile(char *filename)
     char *delim = strstr(filename, ".");
     if(delim == NULL)
     {
-        printf(BRED"Invalid Extension\n"RESET);
+        printf(BRED"%s File has Invalid Extension\n"RESET, filename);
         return FAILURE;
     }
     else if(strcmp(delim, ".txt") != 0)

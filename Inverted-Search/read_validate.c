@@ -15,8 +15,8 @@ int read_validate(int argc, char *argv[], v_files *flist, v_files **head)
         char *delim = strstr(argv[i], ".");
         if(delim == NULL)
         {
-            printf(BRED"Invalid Extension\n"RESET);
-            return FAILURE;
+            printf(BRED"%s File has Invalid Extension\n"RESET, argv[i]);
+            continue;
         }
         else if(strcmp(delim, ".txt") != 0)
         {
