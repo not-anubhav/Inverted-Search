@@ -52,9 +52,15 @@ int save_database(main_t *mainnode, sub_t *subnode, hash_t *hashtable)
 
 int validate_savefile(char *filename)
 {
-    if(!strcmp((strstr(filename, ".")), ".txt") == 0)
+    char *delim = strstr(filename, ".");
+    if(delim == NULL)
     {
-        printf(BRED"%s File is not in .txt format\n"RESET, filename);
+        printf(BRED"Invalid Extension\n"RESET);
+        return FAILURE;
+    }
+    else if(strcmp(delim, ".txt") != 0)
+    {
+        printf(BRED"%s File Format is not .txt\n"RESET, filename);
         return FAILURE;
     }
     return SUCCESS;

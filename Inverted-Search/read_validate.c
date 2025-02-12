@@ -12,7 +12,13 @@ int read_validate(int argc, char *argv[], v_files *flist, v_files **head)
     for(int i = 1; i < argc; i++)
     {
         int dup = 0;
-        if(!strcmp((strstr(argv[i], ".")), ".txt") == 0)
+        char *delim = strstr(argv[i], ".");
+        if(delim == NULL)
+        {
+            printf(BRED"Invalid Extension\n"RESET);
+            return FAILURE;
+        }
+        else if(strcmp(delim, ".txt") != 0)
         {
             printf(BRED"%s File Format is not .txt\n"RESET, argv[i]);
             continue;

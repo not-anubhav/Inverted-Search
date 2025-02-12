@@ -38,10 +38,12 @@ int main(int argc, char *argv[])
 			display_output(&subnode, &mainnode, hashtable);
 			break;
 		case 3:
-			update(&flist, &update_oper_head, &mainnode, &subnode, hashtable);
-			//print_ht(hashtable);
-			delete_node(&head, &update_oper_head);
-			print_Flist(head);
+			if(update(&flist, &update_oper_head, &mainnode, &subnode, hashtable) == SUCCESS)
+			{
+				//print_ht(hashtable);
+				delete_node(&head, &update_oper_head);
+				print_Flist(head);
+			}
 			break;
 		case 4:
 			search(hashtable, &mainnode, &subnode);

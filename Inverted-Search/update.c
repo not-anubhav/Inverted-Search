@@ -16,9 +16,16 @@ int update(v_files *flist, v_files **head, main_t *mainnode, sub_t *subnode, has
     char filename[50];
     printf(BCYAN"Enter the file name to update data: "RESET);
     scanf("%s", filename);
-
-    if(!filename || strcmp((strstr(filename, ".")), ".txt") != 0)
+    
+    char *delim = strstr(filename, ".");
+    if(delim == NULL)
     {
+        printf(BRED"Invalid Extension\n"RESET);
+        return FAILURE;
+    }
+    else if(strcmp(delim, ".txt") != 0)
+    {
+        printf(BRED"Entered Filename is not in .txt format\n"RESET);
         return FAILURE;
     }
 
@@ -150,6 +157,7 @@ int update(v_files *flist, v_files **head, main_t *mainnode, sub_t *subnode, has
         fscanf(file,"\n");
     }
     database_updated = 1;
+    return SUCCESS;
 }
 
 FILE *update_validation(char *filename)
