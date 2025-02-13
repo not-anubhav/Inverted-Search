@@ -58,10 +58,15 @@ int main(int argc, char *argv[])
 			printf("Invaild Choice\n");
 			break;
 		}
+reenter:
 		printf("\nDo you want to continue ?\nEnter y/Y to continue and n/N to discontinue\n");
 		getchar();
 		scanf("%c", &ch);
-		printf("\n");
+		if(ch != 'y' && ch != 'Y' && ch != 'n' && ch != 'N')
+		{
+			printf("Invalid Input\n");
+			goto reenter;
+		}
 	} while (ch == 'y' || ch == 'Y');
 }
 
