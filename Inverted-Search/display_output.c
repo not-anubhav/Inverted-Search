@@ -59,5 +59,6 @@ int display_output(sub_t *subnode, main_t *mainnode, hash_t *hashtable)
 	{
 		printf(BYELLOW"\n[Hash Table is Empty]\n\n"RESET);
 	}
+	printf("-----------------------------------------------------------------------------------------\n");
 }
 
